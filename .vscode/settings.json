@@ -2,6 +2,7 @@
 	"solidity.packageDefaultDependenciesContractsDirectory": "src",
 	"solidity.packageDefaultDependenciesDirectory": "dependencies",
 	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
 	"[solidity]": {
 		"editor.defaultFormatter": "JuanBlanco.solidity"
 	}

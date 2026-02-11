@@ -3,7 +3,7 @@
 # -------------------------------------------------------------
 [profile.default]
 solc_version = "0.8.26"
-evm_version = "cancun"
+evm_version = "prague"
 optimizer = true
 optimizer_runs = 20000
 ffi = true
@@ -12,6 +12,7 @@ out = "out"
 dynamic_test_linking = true
 gas_reports = ["*"]
 libs = ["dependencies"]
+fs_permissions = [{ access = "read-write", path = "./" }]
 
 # -------------------------------------------------------------
 # 🧪 Fuzz testing
