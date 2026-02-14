@@ -2,16 +2,16 @@
 # 🛠 Default Profile – local dev & CI
 # -------------------------------------------------------------
 [profile.default]
-solc_version = "0.8.26"
+solc_version = "0.8.30"
 evm_version = "prague"
 optimizer = true
-optimizer_runs = 20000
+optimizer_runs = 10_000
 ffi = true
 src = "src"
 out = "out"
 via_ir = true
 dynamic_test_linking = true
-gas_reports = ["BLSPrecompilesBase"]
+gas_reports = ["BLSPrecompilesBase","BLSBase"]
 libs = ["dependencies"]
 fs_permissions = [{ access = "read-write", path = "./" }]
 
