@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.30;
+pragma solidity >=0.8.30 <0.9.0;
 
 import {BLS} from "src/BLS.sol";
 import {Test} from "forge-std/Test.sol";
-
-import {console2 as console} from "forge-std/console2.sol";
 
 contract SignatureVerifier {
     /**

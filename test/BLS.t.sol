@@ -5,8 +5,6 @@ import {BLS} from "src/BLS.sol";
 
 import {Test} from "forge-std/Test.sol";
 
-import {console2 as console} from "forge-std/console2.sol";
-
 contract BLSGasTest is Test {
     BLS.G1 public a;
     BLS.G1 public two_a;
@@ -107,8 +105,6 @@ contract BLSGasTest is Test {
         uint256 gasBefore = gasleft();
         BLS.G1 memory result = BLS.g1Add(_a, _a);
         uint256 gasUsed = gasBefore - gasleft();
-
-        // emit log_named_uint("g1Add gas", gasUsed);
 
         assertEq(result.x.a0, two_a.x.a0);
         assertEq(result.x.a1, two_a.x.a1);
