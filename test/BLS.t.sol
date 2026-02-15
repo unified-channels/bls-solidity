@@ -100,11 +100,9 @@ contract BLSGasTest is Test {
         });
     }
 
-    function test_g1Add() public {
+    function test_g1Add() public view {
         BLS.G1 memory _a = a;
-        uint256 gasBefore = gasleft();
         BLS.G1 memory result = BLS.g1Add(_a, _a);
-        uint256 gasUsed = gasBefore - gasleft();
 
         assertEq(result.x.a0, two_a.x.a0);
         assertEq(result.x.a1, two_a.x.a1);
