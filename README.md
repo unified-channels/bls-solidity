@@ -35,14 +35,6 @@ forge soldeer install bls-solidity
 git submodule add https://github.com/unified-channels/bls-solidity.git lib/bls-solidity
 ```
 
-
-
-### Add Remappings
-
-```txt
-@unified-channels/bls-solidity=lib/bls-solidity/src/
-```
-
 ### Import in Your Contract
 
 ```solidity
@@ -79,7 +71,6 @@ contract Example {
         return result;
     }
 }
-
 ```
 
 ### Example 2: Scalar Multiplication
