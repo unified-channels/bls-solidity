@@ -189,24 +189,45 @@ library BLS {
         });
     }
 
+    /**
+     * @notice Returns the negated generator point of G2
+     * @dev The negated base point (-G2) for efficient signature verification
+     *
+     * Mathematical Definition:
+     * For a point P = (x, y) on the curve, -P = (x, -y) where -y = p - y (mod p)
+     * This follows from the property: P + (-P) = O (point at infinity)
+     *
+     * Use Case:
+     * Essential for BLS signature verification. The pairing equation:
+     *   e(signature, G2) == e(message_hash, public_key)
+     * Can be rewritten as:
+     *   e(signature, -G2) * e(message_hash, public_key) == 1
+     * This allows using the standard pairing check without negating in the contract.
+     *
+     * @return G2 The negated generator point (-G2)
+     *
+     * @custom:note The x-coordinate is identical to the generator, only y is negated
+     * @custom:note This point is in the correct subgroup since G2 is in the subgroup
+     * @custom:warning This is a constant point - do not modify the coordinates
+     */
     function negG2Generator() internal pure returns (G2 memory) {
-        return BLS.G2({
-            x: BLS.Fp2({
-                c0: BLS.Fp({
+        return G2({
+            x: Fp2({
+                c0: Fp({
                     a0: 3045985886519456750490515843806728273,
                     a1: 89961632905173714226157479458612185649920463576279427516307505038263245192632
                 }),
-                c1: BLS.Fp({
+                c1: Fp({
                     a0: 26419286191256893424348605754143887205,
                     a1: 40446337346877272185227670183527379362551741423616556919902061939448715946878
                 })
             }),
-            y: BLS.Fp2({
-                c0: BLS.Fp({
+            y: Fp2({
+                c0: Fp({
                     a0: 17421388336814597573762763446246275004,
                     a1: 82535940630695547964844822885348920226556672312706312698172214783216175252138
                 }),
-                c1: BLS.Fp({
+                c1: Fp({
                     a0: 26554973746327433462396120515077546301,
                     a1: 69304817850384178235384652711014277219752988873539414788182467642510429663469
                 })
